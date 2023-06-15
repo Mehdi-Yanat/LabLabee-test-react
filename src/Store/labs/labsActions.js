@@ -6,7 +6,7 @@ import moment from "moment";
 
 export const getAllLabs = () => (dispatch) => {
 
-    axios.get('http://localhost:3000/api/labs', {
+    axios.get(`${process.env.REACT_APP_API_URL}/api/labs`, {
         headers: {
             'Content-Type': 'application/json',
         }
@@ -25,7 +25,7 @@ export const getAllLabs = () => (dispatch) => {
 
 export const createLab = (labDto) => (dispatch) => {
 
-    axios.post('http://localhost:3000/api/labs', {
+    axios.post(`${process.env.REACT_APP_API_URL}/api/labs`, {
         ...labDto,
         start_date: moment(labDto.start_date).format('YYYY-MM-DD'),
         end_date: moment(labDto.end_date).format('YYYY-MM-DD'),
@@ -57,7 +57,7 @@ export const createLab = (labDto) => (dispatch) => {
 
 export const getOneLab = (id) => (dispatch) => {
 
-    axios.get(`http://localhost:3000/api/labs/${id}`, {
+    axios.get(`${process.env.REACT_APP_API_URL}/api/labs/${id}`, {
         headers: {
             'Content-Type': 'application/json',
         }
@@ -75,7 +75,7 @@ export const getOneLab = (id) => (dispatch) => {
 }
 
 export const deleteLab = (id) => (dispatch) => {
-    axios.delete(`http://localhost:3000/api/labs/${id}`, {
+    axios.delete(`${process.env.REACT_APP_API_URL}/api/labs/${id}`, {
         headers: {
             'Content-Type': 'application/json',
         }
@@ -98,7 +98,7 @@ export const deleteLab = (id) => (dispatch) => {
 
 
 export const updateLab = (id, labDto) => (dispatch) => {
-    axios.put(`http://localhost:3000/api/labs/${id}`, {
+    axios.put(`${process.env.REACT_APP_API_URL}/api/labs/${id}`, {
         ...labDto,
         start_date: moment(labDto.start_date).format('YYYY-MM-DD'),
         end_date: moment(labDto.end_date).format('YYYY-MM-DD'),
