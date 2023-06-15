@@ -1,0 +1,68 @@
+.Popup-overlay{
+    position: absolute;
+    background-color: rgba(230, 205, 125, 0.473);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Popup {
+    overflow-y: scroll;
+    border: 1px solid rgba(0, 0, 0, 0.185);
+    width: 90%;
+    height: 600px;
+    border-radius: 30px;
+    background-color: bisque;
+    position: relative;
+}
+
+.Popup::-webkit-scrollbar {
+    width: 5px;
+}
+
+.Popup::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+.Popup::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.473);
+    border-radius: 30px;
+}
+
+.Popup::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+.ClosePopup{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1.2em;
+}
+
+.Calendar{
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+}
+
+@media (min-width:700px) {
+    .Popup{
+        width: 500px;
+        height: 600px;
+    }
+}

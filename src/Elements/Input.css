@@ -1,0 +1,15 @@
+.InputContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1em;
+}
+
+.InputContainer > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 90%;
+}

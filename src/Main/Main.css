@@ -1,0 +1,81 @@
+.Main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+}
+
+.Labs{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 90vh;
+}
+
+.Labs > div {
+    border: 1px solid rgba(0, 0, 0, 0.185);
+    background-color: rgba(243, 122, 0, 0.116);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.Labs > div > div {
+    display: flex;
+    gap: .5em;
+    
+}
+
+.LabsInfo{
+    border: 1px solid rgba(0, 0, 0, 0.185);
+    width: 100%;
+    height: 90vh;
+}
+
+.startDate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.endDate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deleteButtonContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+@media (max-width:400px) {
+    .Main{
+        grid-template-columns: 1fr;
+    }
+    .Labs{
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        height: 100%;
+    }
+    .Labs > div > div {
+        display: flex;
+        flex-direction: flex;
+        gap: .5em;
+        
+    }
+}
+
+@media (min-width:700px) {
+    .Labs > div {
+        flex-direction: row;
+    }
+    .DateSection{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}

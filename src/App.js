@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+// @ts-nocheck
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import Main from './Main/Main';
+import NavBar from './NavBar/NavBar';
+import Popup from './Popup/Popup';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllLabs } from './Store/labs/labsActions';
+
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  const isCreatedSuccess = useSelector(state => state.labs.isCreatedSuccess)
+  const isDeletedSuccess = useSelector(state => state.labs.isDeletedSuccess)
+
+  const [isCreate, setIsCreate] = useState(false)
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+
+  useEffect(() => {
+    dispatch(getAllLabs())
+  }, [dispatch, isCreatedSuccess, isDeletedSuccess])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {isPopupOpen ? <Popup isCreate={isCreate} setIsPopupOpen={setIsPopupOpen} /> : ''}
+      <NavBar setIsPopupOpen={setIsPopupOpen} setIsCreate={setIsCreate} />
+      <Main setIsPopupOpen={setIsPopupOpen} setIsCreate={setIsCreate} />
     </div>
   );
 }
