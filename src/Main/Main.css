@@ -8,7 +8,7 @@
 .Labs{
     background-color: rgb(255, 255, 255);
     width: 100%;
-    height: 90vh;
+    height: 100%;
 }
 
 .Labs > div {
@@ -24,12 +24,11 @@
 .Labs > div > div {
     display: flex;
     gap: .5em;
-    
 }
 
 .LabsInfo{
     width: 100%;
-    height: 90vh;
+    height: 100%;
 }
 
 .startDate{
@@ -58,7 +57,9 @@
     .Labs{
         background-color: rgb(255, 255, 255);
         width: 100%;
-        height: 100%;
+        height: 300px;
+        overflow: auto;
+
     }
     .Labs > div > div {
         display: flex;
@@ -68,7 +69,7 @@
     }
 }
 
-@media (min-width:890px) {
+@media (min-width:1024px) {
     .Labs > div {
         flex-direction: row;
     }

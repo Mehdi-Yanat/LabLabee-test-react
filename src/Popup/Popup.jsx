@@ -67,7 +67,7 @@ function Popup(props) {
 
 
     return (
-        <div className='Popup-overlay'>
+        <div style={{height: !lab._id ? '100vh' : ''}} className='Popup-overlay'>
             <div className='Popup'>
                 <div className='ClosePopup' >
                     <Button onClick={closePopup} styles={{ borderRadius: '30px', height: '30px', width: '30px' }} >

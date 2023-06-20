@@ -13,7 +13,7 @@
     overflow-y: scroll;
     border: 1px solid rgba(0, 0, 0, 0.185);
     width: 90%;
-    height: 600px;
+    max-height: 90%;
     border-radius: 30px;
     background-color: bisque;
     position: relative;
@@ -64,5 +64,11 @@
     .Popup{
         width: 500px;
         height: 600px;
+    }
+}
+
+@media (min-width:1024px) {
+    .Popup-overlay{
+        height: 100vh;
     }
 }
