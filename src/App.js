@@ -14,13 +14,14 @@ function App() {
 
   const isCreatedSuccess = useSelector(state => state.labs.isCreatedSuccess)
   const isDeletedSuccess = useSelector(state => state.labs.isDeletedSuccess)
+  const isUpdatedSuccess = useSelector((state) => state.labs.isUpdatedSuccess);
 
   const [isCreate, setIsCreate] = useState(false)
   const [isPopupOpen, setIsPopupOpen] = useState(false)
 
   useEffect(() => {
     dispatch(getAllLabs())
-  }, [dispatch, isCreatedSuccess, isDeletedSuccess])
+  }, [dispatch, isCreatedSuccess, isDeletedSuccess,isUpdatedSuccess])
 
   return (
     <div className="App">
