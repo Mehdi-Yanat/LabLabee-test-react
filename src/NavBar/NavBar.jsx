@@ -1,12 +1,17 @@
 import React from 'react'
 import './NavBar.css'
 import Button from '../Elements/Button'
+import { useDispatch } from 'react-redux'
+import { labsActions } from '../Store/labs/labsSlice'
 
 function NavBar(props) {
+
+    const dispatch = useDispatch()
 
     const openPopup = () => {
         props.setIsPopupOpen(true)
         props.setIsCreate(true)
+        dispatch(labsActions.labIdToUpdate(''))
     }
 
     return (
