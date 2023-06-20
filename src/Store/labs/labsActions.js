@@ -27,6 +27,7 @@ export const createLab = (labDto) => (dispatch) => {
 
     axios.post(`${process.env.REACT_APP_API_URL}/api/labs`, {
         ...labDto,
+        name: labDto.name.toUpperCase(),
         start_date: moment(labDto.start_date).format('YYYY-MM-DD'),
         end_date: moment(labDto.end_date).format('YYYY-MM-DD'),
     }, {
@@ -45,10 +46,11 @@ export const createLab = (labDto) => (dispatch) => {
             return toast.warn(res.data.message)
         }
     }).catch((err) => {
-        if (err.response && err.response.data) {
+        console.log(err.response);
+        if (err.response && Array.isArray(err.response.data.message)) {
             return err.response.data.message.map(el => toast.warn(el.msg))
         } else {
-            return toast.warn(err.message)
+            return toast.warn(err.response.data.message)
         }
     })
 
@@ -69,7 +71,12 @@ export const getOneLab = (id) => (dispatch) => {
             return toast.warn(res.data.message)
         }
     }).catch((err) => {
-        return toast.warn(err.message)
+        console.log(err.response);
+        if (err.response && Array.isArray(err.response.data.message)) {
+            return err.response.data.message.map(el => toast.warn(el.msg))
+        } else {
+            return toast.warn(err.response.data.message)
+        }
     })
 
 }
@@ -92,7 +99,12 @@ export const deleteLab = (id) => (dispatch) => {
             return toast.warn(res.data.message)
         }
     }).catch((err) => {
-        return toast.warn(err.message)
+        console.log(err.response);
+        if (err.response && Array.isArray(err.response.data.message)) {
+            return err.response.data.message.map(el => toast.warn(el.msg))
+        } else {
+            return toast.warn(err.response.data.message)
+        }
     })
 }
 
@@ -100,6 +112,7 @@ export const deleteLab = (id) => (dispatch) => {
 export const updateLab = (id, labDto) => (dispatch) => {
     axios.put(`${process.env.REACT_APP_API_URL}/api/labs/${id}`, {
         ...labDto,
+        name: labDto.name.toUpperCase(),
         start_date: moment(labDto.start_date).format('YYYY-MM-DD'),
         end_date: moment(labDto.end_date).format('YYYY-MM-DD'),
     }, {
@@ -124,9 +137,6 @@ export const updateLab = (id, labDto) => (dispatch) => {
             } else {
                 return toast.warn(err.response.data.message)
             }
-
-        } else {
-            return toast.warn(err.message)
-        }
+        } 
     })
 }
